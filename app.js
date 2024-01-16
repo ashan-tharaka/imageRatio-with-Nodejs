@@ -38,14 +38,18 @@ async function compareImages(imagePath1, imagePath2) {
     const differenceRatio = differences / totalPixels;
 
     // Display the result
-    console.log('Image difference ratio:', differenceRatio);
+    const value=(1- differenceRatio)*100;
+    const RoundValue=Number(value.toFixed(2));
+
+
+    console.log(`Image similarity percentage is: ${RoundValue}%`);
   } catch (error) {
     console.error('Error:', error.message);
   }
 }
 
 // Example usage
-const image1Path = 'images/image5.png';
-const image2Path = 'images/image4.png';
+const image1Path = 'images/image4.png';
+const image2Path = 'images/image5.png';
 
 compareImages(image1Path, image2Path);
